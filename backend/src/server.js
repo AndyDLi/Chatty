@@ -4,12 +4,15 @@ import path from 'path'; // utility for handling and transforming file paths
 
 import authRoutes from './routes/auth.route.js'; // import auth routes
 import messageRoutes from './routes/message.route.js'; // import message routes
+import { connectDB } from './lib/db.js'; // import database connection function
 
 dotenv.config();
 
 const app = express(); // create an Express application
 const PORT = process.env.PORT || 3000;
 const __dirname = path.resolve(); // get the directory name of the current module
+
+app.use(express.json()); // middleware to parse JSON request bodies
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
@@ -24,4 +27,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Start the Server
-app.listen(PORT, () => { console.log('Server is Running on Port ' + PORT) });
+app.listen(PORT, () => { 
+    console.log('Server is Running on Port ' + PORT) 
+    connectDB(); // connect to the database when the server starts
+});

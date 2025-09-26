@@ -1,11 +1,9 @@
 import express from 'express'; // framework to build web servers & APIs
+import { signup } from '../controllers/auth.controller.js'
 
 const router = express.Router();
 
-// GET Request Endpoints for Backend
-router.get("/signup", (req, res) => {
-    res.send("Signup Endpoint")
-});
+router.post("/signup", signup);
 
 router.get("/login", (req, res) => {
     res.send("Login Endpoint")

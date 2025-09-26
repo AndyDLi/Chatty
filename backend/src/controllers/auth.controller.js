@@ -35,8 +35,8 @@ export const signup = async (req, res) => {
         });
 
         if (newUser) {
-            generateToken(newUser._id, res);
-            await newUser.save(); // save user to database
+            const savedUser = await newUser.save(); // save user to database
+            generateToken(savedUser._id, res); // generate JWT token and set it in HTTP-only cookie
 
             res.status(201).json({
                 _id: newUser._id,

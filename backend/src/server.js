@@ -1,6 +1,7 @@
 import express from 'express'; // framework to build web servers & APIs
 import cookieParser from 'cookie-parser'; // middleware to parse cookies
 import path from 'path'; // utility for handling and transforming file paths
+import cors from 'cors'; // configured CORS middleware for handling cross-origin requests
 
 import authRoutes from './routes/auth.route.js'; // import auth routes
 import messageRoutes from './routes/message.route.js'; // import message routes
@@ -13,6 +14,7 @@ const PORT = ENV.PORT || 3000;
 const __dirname = path.resolve(); // get the directory name of the current module
 
 app.use(express.json()); // middleware to parse JSON request bodies
+app.use(cors({ origin: ENV.CLIENT_URL, credentials: true })); // allows cookies to be sent from the frontend to the backend
 app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);

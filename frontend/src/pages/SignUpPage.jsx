@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { MessageCircleIcon, LockIcon, MailIcon, UserIcon, LoaderIcon } from "lucide-react";
 
-import { useAuthStore } from "../store/useAuthStore";
+import { useAuthStore } from "../store/useAuthStore.js";
 import BorderAnimatedContainer from "../components/BorderAnimatedContainer";
 
 function SignUpPage() {
@@ -89,7 +89,7 @@ function SignUpPage() {
             </div>
 
             {/* Form Illustration - Right Side */}
-            <div className="hidden md:w-1/2 md:flex items-center justify-center p-6 bg-gradient-to-bl from-slate-800/20 to-transparent">
+            <div className="hidden md:w-1/2 md:flex items-center justify-center p-10 bg-gradient-to-bl from-slate-800/20 to-transparent">
               <div>
                 <img
                   src="/signup.png"

@@ -12,7 +12,7 @@ function ChatPage() {
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center p-4 bg-slate-900 overflow-hidden">
-      <div className="relative w-full max-w-6xl h-[600px] min-h-[500px] max-h-[80vh]">
+      <div className="relative w-full max-w-6xl h-[600px] min-h-[500px] max-h-[90vh]">
         <BorderAnimatedContainer>
           {/* Left Side */}
           <div className="w-80 bg-slate-800/50 backdrop-blur-sm flex flex-col">

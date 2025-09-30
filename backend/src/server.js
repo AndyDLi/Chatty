@@ -13,7 +13,7 @@ const app = express(); // create an Express application
 const PORT = ENV.PORT || 3000;
 const __dirname = path.resolve(); // get the directory name of the current module
 
-app.use(express.json()); // middleware to parse JSON request bodies
+app.use(express.json({ limit: "1mb" })); // middleware to parse JSON request bodies
 app.use(cors({ origin: ENV.CLIENT_URL, credentials: true })); // allows cookies to be sent from the frontend to the backend
 app.use(cookieParser());
 

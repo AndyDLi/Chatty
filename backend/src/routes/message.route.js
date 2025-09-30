@@ -4,6 +4,7 @@ import { arcjetProtection } from "../middleware/arcjet.middleware.js"; // import
 import { getAllContacts, getChatPartners, getMessagesByUserId, sendMessage } from '../controllers/message.controller.js' // import message controllers
 
 const router = express.Router();
+
 router.use(arcjetProtection, protectRoute); // apply authentication middleware to all message routes
 
 // GET method routes for messaging

@@ -59,5 +59,16 @@ export const useAuthStore = create((set, get) => ({
             const errorMessage = error.response?.data?.message || error.response?.data?.error || error.message || "An Error Occurred During Logout";
             toast.error(errorMessage);
         }
-    }
+    },
+
+    updateProfile: async (data) => {
+        try {
+            const res = await axiosInstance.put("/auth/update-profile", data);
+            set ({ authUser: res.data });
+            toast.success("Profile Updated Successfully!");
+        } catch (error) {
+            const errorMessage = error.response?.data?.message || error.response?.data?.error || error.message || "An Error Occurred While Updating Profile";
+            toast.error(errorMessage);
+        }
+    },
 }));

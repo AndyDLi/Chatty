@@ -26,12 +26,12 @@
 
 ## 📋 Table of Contents
 
-- [✨ Features](#-features)
-- [🛠️ Tech Stack](#-tech-stack)
-- [🚀 Getting Started](#-getting-started)
-- [📁 Project Structure](#-project-structure)
-- [🏗️ Authentication Diagram](#-authentication-workflow-diagram)
-- [👨‍💻 Author](#-author)
+- [✨ Features](#features)
+- [🛠️ Tech Stack](#tech-stack)
+- [🚀 Getting Started](#getting-started)
+- [📁 Project Structure](#project-structure)
+- [🏗️ Authentication Diagram](#authentication-workflow-diagram)
+- [👨‍💻 Author](#author)
 
 ---
 

@@ -2,20 +2,24 @@ import { useEffect, useRef } from "react";
 import { useChatStore } from "../store/useChatStore.js";
 import { useAuthStore } from "../store/useAuthStore.js";
 import ChatHeader from "../components/ChatHeader.jsx";
+import NoChatHistoryPlaceholder from "./NoChatHistoryPlaceholder.jsx";
 import MessagesLoadingSkeleton from "../components/MessagesLoadingSkeleton.jsx";
 import MessageInput from "../components/MessageInput.jsx";
 
-import NoChatHistoryPlaceholder from "./NoChatHistoryPlaceholder.jsx";
-
 function ChatContainer() {
-  const { selectedUser, getMessagesByUserId, messages, isMessagesLoading } = useChatStore();
+  const { selectedUser, getMessagesByUserId, messages, isMessagesLoading, subscribeToMessages, unsubscribeFromMessages } = useChatStore();
   const { authUser } = useAuthStore();
   const messageEndRef = useRef(null);
 
+  // fetch messages when selected user changes
   useEffect(() => {
     getMessagesByUserId(selectedUser._id);
-  }, [selectedUser, getMessagesByUserId]);
+    subscribeToMessages();
+    
+    return () => { unsubscribeFromMessages(); }
+  }, [selectedUser, getMessagesByUserId, subscribeToMessages, unsubscribeFromMessages]);
 
+  // scroll to bottom when messages change
   useEffect(() => {
     if (messageEndRef.current) {
       messageEndRef.current.scrollIntoView({ behavior: "smooth" });

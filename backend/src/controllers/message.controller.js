@@ -1,6 +1,7 @@
 import Message from "../models/Message.js"; // import Message schema model
 import User from "../models/User.js"; // import User schema model
 import cloudinary from "../lib/cloudinary.js"; // import cloudinary instance
+import { getReceiverSocketId, io } from "../lib/socket.js"; // import function to get receiver's socket ID
 
 export const getAllContacts = async (req, res) => {
     try {
@@ -68,7 +69,11 @@ export const sendMessage = async (req, res) => {
 
         await newMessage.save()
         
-        // TODO: send message in real-time using sockets
+        // send message in real-time using sockets
+        const receiverSocketId = getReceiverSocketId(receiverId);
+        if (receiverSocketId) {
+            io.to(receiverSocketId).emit("newMessage", newMessage);
+        }
         
         res.status(201).json(newMessage);
     }

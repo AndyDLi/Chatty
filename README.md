@@ -1,18 +1,52 @@
-# 💬 Chatty - Real-Time Chat Application
-
 <div align="center">
 
-![Chatty Logo](frontend/public/chatty-logo.png)
+# 💬 Chatty - Real-Time Chat Application 🚀
 
-**A modern, full-stack real-time messaging platform built with the MERN stack**
+[![Live Demo](https://img.shields.io/badge/demo-online-success?style=for-the-badge)](https://github.com/AndyDLi/Chatty)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/React-19.1.1-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-7.0-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Socket.io](https://img.shields.io/badge/Socket.io-4.8.1-010101?style=for-the-badge&logo=socket.io&logoColor=white)](https://socket.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
-[![React Version](https://img.shields.io/badge/react-19.1.1-blue)](https://reactjs.org/)
+**A Modern, Full-Stack Real-Time Messaging Platform Built with the MERN Stack**
 
-[Features](#-features) • [Demo](#-demo) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [Documentation](#-documentation)
+Demonstrating Production-Ready Authentication, WebSocket Communication, and Cloud Services Integration
+
+[View Demo](#-demo) · [Features](#-features) · [Tech Stack](#-tech-stack) · [Get Started](#-getting-started) · [Documentation](TECHNICAL_NOTES.md)
 
 </div>
+
+---
+
+<div align="center">
+  <img width="900" alt="Chatty Application Preview" src="frontend/public/chatty-logo.png" />
+  
+  *Real-time messaging with modern UI, secure authentication, and online presence indicators*
+</div>
+
+---
+
+## 📋 Table of Contents
+
+- [📖 About](#-about)
+- [✨ Features](#-features)
+- [🎬 Demo](#-demo)
+- [🛠️ Tech Stack](#-tech-stack)
+- [🚀 Getting Started](#-getting-started)
+- [📁 Project Structure](#-project-structure)
+- [🔌 API Documentation](#-api-documentation)
+- [🔐 Security Features](#-security-features)
+- [🎨 UI/UX Features](#-uiux-features)
+- [📚 Documentation](#-documentation)
+- [🚀 Deployment](#-deployment)
+- [🧪 Testing](#-testing)
+- [🤝 Contributing](#-contributing)
+- [🎯 Learning Outcomes](#-learning-outcomes)
+- [💼 Portfolio & Resume](#-portfolio--resume)
+- [📞 Support](#-support)
+- [👨‍💻 Author](#-author)
+- [🙏 Acknowledgments](#-acknowledgments)
 
 ---
 
@@ -889,6 +923,22 @@ If you found this project helpful or learned something from it, please consider 
 
 ---
 
+## 👨‍💻 Author
+
+<div align="center">
+
+**Andy Li**
+
+Computer Science Student | Full-Stack Developer | Georgia Institute of Technology
+
+[![GitHub](https://img.shields.io/badge/GitHub-AndyDLi-181717?style=for-the-badge&logo=github)](https://github.com/AndyDLi)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/andyli-tech)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-FF6B6B?style=for-the-badge&logo=google-chrome&logoColor=white)](https://andyli-portfolio.vercel.app/)
+
+</div>
+
+---
+
 <div align="center">
 
 **Built with ❤️ as a Full-Stack Learning Project**
@@ -900,5 +950,7 @@ Demonstrating Modern Web Development Best Practices
 ---
 
 ### 🌟 If this project helped you learn, please star it! 🌟
+
+**© 2025 Andy Li. All rights reserved.**
 
 </div>

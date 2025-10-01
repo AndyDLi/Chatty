@@ -1,17 +1,23 @@
 import { create } from "zustand"; // global state management
 import { axiosInstance } from "../lib/axios";
 import toast from "react-hot-toast";
+import { io } from "socket.io-client";
+
+const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "/";
 
 export const useAuthStore = create((set, get) => ({
   authUser: null, // initial user state
   isCheckingAuth: true,
   isSigningUp: false,
   isLoggingIn: false,
+  socket: null,
+  onlineUsers: [],
 
     checkAuth: async () => {
         try {
             const res = await axiosInstance.get("/auth/check");
             set({ authUser: res.data });
+            get().connectSocket();
         } catch (error) {
             console.log("Error in authCheck:", error);
             set({ authUser: null });
@@ -27,6 +33,7 @@ export const useAuthStore = create((set, get) => ({
             set({ authUser: res.data });
 
             toast.success("Account Created Successfully!");
+            get().connectSocket();
         } catch (error) {
             const errorMessage = error.response?.data?.message || error.response?.data?.error || error.message || "An Error Occurred During Signup";
             toast.error(errorMessage);
@@ -42,6 +49,7 @@ export const useAuthStore = create((set, get) => ({
             set({ authUser: res.data });
 
             toast.success("Login Successful!");
+            get().connectSocket();
         } catch (error) {
             const errorMessage = error.response?.data?.message || error.response?.data?.error || error.message || "An Error Occurred During Login";
             toast.error(errorMessage);
@@ -55,6 +63,7 @@ export const useAuthStore = create((set, get) => ({
             await axiosInstance.post("/auth/logout");
             set({ authUser: null });
             toast.success("Logged Out Successfully");
+            get().disconnectSocket();
         } catch (error) {
             const errorMessage = error.response?.data?.message || error.response?.data?.error || error.message || "An Error Occurred During Logout";
             toast.error(errorMessage);
@@ -70,5 +79,26 @@ export const useAuthStore = create((set, get) => ({
             const errorMessage = error.response?.data?.message || error.response?.data?.error || error.message || "An Error Occurred While Updating Profile";
             toast.error(errorMessage);
         }
+    },
+
+    connectSocket: () => {
+        const { authUser } = get();
+        if (!authUser || get().socket?.connected) return;
+
+        // initialize socket with cookie credentials
+        const socket = io(BASE_URL, {
+            withCredentials: true,
+        });
+        socket.connect();
+        set({ socket });
+
+        // listen for online users event
+        socket.on("getOnlineUsers", (userIds) => {
+            set({ onlineUsers: userIds });
+        });
+    },
+
+    disconnectSocket: () => {
+        if (get().socket?.connected) get().socket.disconnect();
     },
 }));

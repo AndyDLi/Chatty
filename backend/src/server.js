@@ -8,8 +8,8 @@ import messageRoutes from './routes/message.route.js'; // import message routes
 
 import { connectDB } from './lib/db.js'; // import database connection function
 import { ENV } from './lib/env.js'; // import environment variables
+import { app, server } from "./lib/socket.js"; // import the express app from socket.js
 
-const app = express(); // create an Express application
 const PORT = ENV.PORT || 3000;
 const __dirname = path.resolve(); // get the directory name of the current module
 
@@ -30,7 +30,7 @@ if (ENV.NODE_ENV === "production") {
 }
 
 // Start the Server
-app.listen(PORT, () => { 
+server.listen(PORT, () => { 
     console.log('Server is Running on Port ' + PORT) 
     connectDB(); // connect to the database when the server starts
 });
